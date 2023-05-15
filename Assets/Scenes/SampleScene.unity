@@ -5029,13 +5029,13 @@ MonoBehaviour:
   incorrectLetters: 10
   gameOver: 0
   wordsToGuess:
-  - Apple
-  - Cat
-  - Computer
-  - Design
-  - Moon
-  - Celestial
-  ChosenWord: 
+  - apple
+  - cat
+  - computer
+  - design
+  - moon
+  - celestial
+  chosenWord: 
   letterDisplay:
   - {fileID: 84163359}
   - {fileID: 2086593638}
