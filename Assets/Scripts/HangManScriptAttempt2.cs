@@ -14,7 +14,7 @@ public class HangManScriptAttempt2 : MonoBehaviour
 
     //public HangSetUP baseSetup;
 
-    public bool letterFound;
+    public bool letterFound = false;
     public string[] wordList;
     public string chosenWord;
     public int correctLetters;
@@ -33,6 +33,7 @@ public class HangManScriptAttempt2 : MonoBehaviour
     void Start()
     {
         GameSetup();
+      
     }
 
     // Update is called once per frame
@@ -69,7 +70,7 @@ public class HangManScriptAttempt2 : MonoBehaviour
 
     public void CorrectGuess()
     {
-
+        //letterFound = false;
         for (int i = 0; i < chosenWord.Length; i++)
         {
             if (inputCharacter == chosenWord[i])
@@ -77,23 +78,23 @@ public class HangManScriptAttempt2 : MonoBehaviour
                 letterFound = true;
                 if (letterFound)
                 {
-
+                    correctLetterIndex = i;
                     guessedLetters[correctLetterIndex].text = inputCharacter.ToString().ToUpper();
-                    correctLetterIndex++;
+                    correctLetters--;
                 }
 
             }
             
-            else
-            {
+            //else
+            //{
                 
-                letterFound = false;
-                Debug.LogWarning("CorrectGuess Lettfound set to false");
-            }
+            //    letterFound = false;
+            //    Debug.LogWarning("CorrectGuess Lettfound set to false");
+            //}
         }
+
+
         
-
-
 
     }
 
