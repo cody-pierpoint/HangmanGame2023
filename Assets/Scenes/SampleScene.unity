@@ -5036,6 +5036,7 @@ MonoBehaviour:
   - moon
   - celestial
   chosenWord: 
+  foundLetter: 0
   letterDisplay:
   - {fileID: 84163359}
   - {fileID: 2086593638}
@@ -5060,6 +5061,17 @@ MonoBehaviour:
   - {fileID: 934547442}
   - {fileID: 679046594}
   - {fileID: 469862131}
+  incorrectLetterDisplay:
+  - {fileID: 802230122}
+  - {fileID: 1187176286}
+  - {fileID: 1580684486}
+  - {fileID: 1140723458}
+  - {fileID: 191648464}
+  - {fileID: 1061483829}
+  - {fileID: 1458141102}
+  - {fileID: 288046647}
+  - {fileID: 1597862955}
+  - {fileID: 1746939040}
   hangmanDrawing:
   - {fileID: 936382300}
   - {fileID: 364223425}
@@ -5071,6 +5083,7 @@ MonoBehaviour:
   - {fileID: 2040482837}
   - {fileID: 1811523634}
   - {fileID: 1873914934}
+  guessedCharacters: 
 --- !u!4 &1667118407
 Transform:
   m_ObjectHideFlags: 0

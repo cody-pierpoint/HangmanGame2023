@@ -11,9 +11,12 @@ public class HangManScript : MonoBehaviour
     public bool gameOver;
     public string[] wordsToGuess;
     public string chosenWord;
+    public int letterIndex;
+    public bool foundLetter;
     //public int wordIndex;
     public TextMeshProUGUI[] letterDisplay;
     public TextMeshProUGUI[] guessedLetters;
+    public TextMeshProUGUI[] incorrectLetterDisplay;
     public GameObject[] hangmanDrawing;
     public List<char> guessedCharacters = new List<char>(capacity: 26);
 
@@ -65,73 +68,85 @@ public class HangManScript : MonoBehaviour
         GuessWord();
     }
 
+    //void correctLetter()
+    //if(foundLetter)
+    // 
     public void GuessWord()
     {
         //assign event.current to variable
         Event e = Event.current;
-
         //loop through word and check each letter in chosenword against the current keycode pressed
         if (e.type == EventType.KeyDown)
         {
             //create temp char to hold character and set 
             char inputCharacter = char.ToUpper(e.character);
-            
             if (inputCharacter >= 'A' && inputCharacter <= 'Z')
             {
                 //if inputcharacter List does not contain guessedcharacter
                 if (!guessedCharacters.Contains(inputCharacter))
                 {
-                    
+                    guessedCharacters.Add(inputCharacter);
                     // add guessed character to list.
                     //list.add(inputcharacter);
                     //if correct letters != 0 and incorrect guesses != 10
                     for (int i = 0; i < chosenWord.Length; i++)
                     {
-
                         if (inputCharacter == chosenWord[i])
                         {
+                            foundLetter = true;
+
+                            Debug.Log(foundLetter + "if == chosenword" + inputCharacter);
                             //bool = true
                             letterDisplay[i].text = inputCharacter.ToString().ToUpper();
                             //if()
-                            
                             correctLetters--;
-
 
                             //if letter guessed correctly, display letter inputed
                             //minus 1 to corrected guesses;
+
+
                         }
-                        //true 
-                       
+
+                        //true   
                     }
-                    
+                    if (inputCharacter != chosenWord[letterIndex])
+                    {
+                        Debug.Log(foundLetter + "if != chosenword");
+
+                        foundLetter = false;
+
+                        incorrectLetterDisplay[letterIndex].text = inputCharacter.ToString().ToUpper();
+                        letterIndex++;
+
+                        incorrectLetters--;
+
+                        //if()
+                    }
+                    //if (!foundLetter)
+                    //{
+
+                    //}
                 }
             }
             //else add one to incorrect guesses
             //    display letter inputed into incorrect guesses display.
             //if (Input.GetKey(e.keyCode))
             //{
-
             //    Debug.Log(e);
             //}
-
-
-
         }
-
-
         //Event guessInput = Event.current.character;
         ////assign event.current.character to variable
-
-        ////
-
         ////char guessedInput = (char)Event.current.keyCode;
-
         ////guessedInput.ToString().ToUpper();
         ////Debug.Log(guessedInput);
         //if (Input.GetKey(Event.current.keyCode))
         //{
-
     }
+
+
+
+
     //if (correctLetters <= ChosenWord.Length)
     //{
     //    if (Event.current.keyCode == (char)ChosenWord.Length)
