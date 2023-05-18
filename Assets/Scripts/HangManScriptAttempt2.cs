@@ -65,12 +65,16 @@ public class HangManScriptAttempt2 : MonoBehaviour
 
     public void OnGUI()
     {
-        MakeGuess();
+        if (!gameOver)
+        {
+            MakeGuess();
+
+        }
     }
 
     public void CorrectGuess()
     {
-        //letterFound = false;
+        letterFound = false;
         for (int i = 0; i < chosenWord.Length; i++)
         {
             if (inputCharacter == chosenWord[i])
@@ -96,6 +100,25 @@ public class HangManScriptAttempt2 : MonoBehaviour
 
         
 
+    }
+    public void WinGame()
+    {
+        if (correctLetters == 0)
+        {
+            gameOver = true;
+
+        }
+    }
+    public void LoseGame()
+    {
+        if (incorrectLetters == 0)
+        {
+            gameOver = true;
+        }
+    }
+    public void GameOver()
+    {
+        if()
     }
 
     public void IncorrectGuess()
@@ -147,6 +170,7 @@ public class HangManScriptAttempt2 : MonoBehaviour
                 guessedCharacters.Add(inputCharacter);
 
                 Debug.Log("add input to guessed character");
+
                 CorrectGuess();
                 if (!letterFound)
                 {
